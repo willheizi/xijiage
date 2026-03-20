@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="referrer" content="no-referrer">
-    <title>双南唐 - 双南液典藏系列</title>
+    <title>双南囍 - 双南液臻酿系列</title>
     <style>
         * {
             margin: 0;
@@ -15,23 +15,25 @@
             font-family: "Microsoft Yahei", sans-serif;
             background-color: #1a1a1a;
             color: #ffffff;
-            overflow-x: hidden;
             line-height: 1.2;
+            padding: 20px; /* 页面内边距，避免内容贴边 */
         }
-        /* 全屏容器 */
-        .fullscreen-container {
-            width: 100vw;
-            min-height: 100vh;
+        /* 整体容器：居中展示，限制最大宽度 */
+        .main-container {
+            max-width: 800px; /* 限制最大宽度，视频非全屏 */
+            margin: 0 auto;
             display: flex;
             flex-direction: column;
+            gap: 15px; /* 视频和文字区间距 */
         }
-        /* 视频区域：全屏宽度，固定16:9比例 */
+        /* 视频区域：非全屏，固定比例 */
         .video-wrapper {
             width: 100%;
             height: 0;
-            padding-bottom: 56.25%; /* 16:9比例，适配所有屏幕 */
+            padding-bottom: 56.25%; /* 16:9比例，保持视频比例 */
             position: relative;
             background-color: #000;
+            border-radius: 4px;
         }
         .video-wrapper iframe {
             position: absolute;
@@ -41,118 +43,98 @@
             height: 100%;
             border: none;
         }
-        /* 价格信息区域：居中展示，参考图片排版 */
-        .price-section {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 40px 20px;
+        /* 文字信息区域：还原效果图排版 */
+        .info-section {
             background-color: #1a1a1a;
             text-align: center;
+            padding: 20px 0;
         }
-        /* 品牌名称：大号粗体 */
+        /* 品牌名称：带下划线，居中 */
         .brand-name {
-            font-size: clamp(2.5rem, 8vw, 4rem); /* 适配不同屏幕 */
+            font-size: clamp(2rem, 8vw, 3.5rem);
             font-weight: 700;
-            margin-bottom: 15px;
-            color: #fff;
+            margin-bottom: 8px;
             position: relative;
-            padding-bottom: 10px;
+            display: inline-block; /* 下划线仅适配文字宽度 */
         }
-        /* 下划线装饰 */
+        /* 下划线：仅在文字下方，与效果图一致 */
         .brand-name::after {
             content: "";
             position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60%;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
             height: 2px;
-            background-color: #fff;
+            background-color: #ffffff;
         }
-        /* 产品描述 */
+        /* 产品描述：小号字体，灰色 */
         .product-desc {
-            font-size: clamp(1rem, 4vw, 1.5rem);
-            color: #e0e0e0;
-            margin-bottom: 30px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
+            font-size: clamp(0.9rem, 4vw, 1.2rem);
+            color: #cccccc;
+            margin-bottom: 25px;
         }
-        /* 度数标签 */
-        .degree-tag {
-            font-size: clamp(1.2rem, 5vw, 1.8rem);
-            color: #fff;
-            font-weight: 500;
-        }
-        /* 价格区域 */
+        /* 价格区域：精准还原位置 */
         .price-box {
             display: flex;
             align-items: flex-end;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
         }
-        /* 价格数字：超大号 */
+        /* 价格数字：超大号粗体 */
         .price-num {
-            font-size: clamp(4rem, 15vw, 7rem);
+            font-size: clamp(4rem, 15vw, 6rem);
             font-weight: 700;
-            color: #fff;
             line-height: 1;
         }
-        /* 零售价标签 */
+        /* 零售价标签：金色背景，小号字体 */
         .retail-tag {
-            font-size: clamp(0.8rem, 3vw, 1.2rem);
-            color: #ffd700; /* 金色 */
-            background-color: rgba(255, 215, 0, 0.1);
-            padding: 5px 8px;
-            border-radius: 4px;
-            margin-bottom: 20px;
+            font-size: clamp(0.7rem, 3vw, 0.9rem);
+            color: #000;
+            background-color: #ffd700; /* 金色背景，与效果图一致 */
+            padding: 2px 6px;
+            border-radius: 2px;
+            margin-bottom: 18px; /* 对齐价格数字底部 */
         }
-        /* 货币单位 */
+        /* 货币单位：小号灰色 */
         .currency {
-            font-size: clamp(1rem, 4vw, 1.8rem);
-            color: #e0e0e0;
-            margin-bottom: 10px;
+            font-size: clamp(0.9rem, 4vw, 1.1rem);
+            color: #cccccc;
+            margin-bottom: 8px;
         }
-        /* 适配小屏手机 */
-        @media (max-width: 375px) {
-            .price-section {
-                padding: 30px 15px;
+        /* 手机端微调 */
+        @media (max-width: 480px) {
+            body {
+                padding: 15px;
             }
-            .product-desc {
-                flex-wrap: wrap;
-                gap: 8px;
+            .price-box {
+                gap: 5px;
+            }
+            .retail-tag {
+                margin-bottom: 15px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="fullscreen-container">
-        <!-- 视频区域（替换为你的视频地址） -->
+    <div class="main-container">
+        <!-- 视频区域（非全屏，替换为你的视频地址） -->
         <div class="video-wrapper">
             <iframe 
-                src="https://willheizi.github.io/shuangnanye-video/video.html" 
+                src="https://willheizi.github.io/shuangnanye-video/video2.html" 
                 allowfullscreen="true"
                 allow="autoplay; fullscreen; picture-in-picture"
                 scrolling="no"
             ></iframe>
         </div>
 
-        <!-- 价格信息区域（参考图片排版） -->
-        <div class="price-section">
-            <h1 class="brand-name">双南唐</h1>
-            <div class="product-desc">
-                <span>双南液典藏系列</span>
-                <span class="degree-tag">46°浓香型白酒</span>
-            </div>
+        <!-- 文字信息区域（替换为双南囍 368元内容） -->
+        <div class="info-section">
+            <h1 class="brand-name">双南囍</h1>
+            <p class="product-desc">双南液臻酿系列 42°浓香型白酒</p>
             <div class="price-box">
-                <span class="price-num">598</span>
-                <div>
-                    <span class="retail-tag">零售价</span>
-                    <span class="currency">RMB</span>
-                </div>
+                <span class="price-num">368</span>
+                <span class="retail-tag">零售价</span>
+                <span class="currency">RMB</span>
             </div>
         </div>
     </div>
