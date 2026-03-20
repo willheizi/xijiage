@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="referrer" content="no-referrer">
+    <title>双南唐 - 双南液典藏系列</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Microsoft Yahei", sans-serif;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.2;
+        }
+        /* 全屏容器 */
+        .fullscreen-container {
+            width: 100vw;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        /* 视频区域：全屏宽度，固定16:9比例 */
+        .video-wrapper {
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9比例，适配所有屏幕 */
+            position: relative;
+            background-color: #000;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        /* 价格信息区域：居中展示，参考图片排版 */
+        .price-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            background-color: #1a1a1a;
+            text-align: center;
+        }
+        /* 品牌名称：大号粗体 */
+        .brand-name {
+            font-size: clamp(2.5rem, 8vw, 4rem); /* 适配不同屏幕 */
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #fff;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        /* 下划线装饰 */
+        .brand-name::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 2px;
+            background-color: #fff;
+        }
+        /* 产品描述 */
+        .product-desc {
+            font-size: clamp(1rem, 4vw, 1.5rem);
+            color: #e0e0e0;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        /* 度数标签 */
+        .degree-tag {
+            font-size: clamp(1.2rem, 5vw, 1.8rem);
+            color: #fff;
+            font-weight: 500;
+        }
+        /* 价格区域 */
+        .price-box {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 10px;
+        }
+        /* 价格数字：超大号 */
+        .price-num {
+            font-size: clamp(4rem, 15vw, 7rem);
+            font-weight: 700;
+            color: #fff;
+            line-height: 1;
+        }
+        /* 零售价标签 */
+        .retail-tag {
+            font-size: clamp(0.8rem, 3vw, 1.2rem);
+            color: #ffd700; /* 金色 */
+            background-color: rgba(255, 215, 0, 0.1);
+            padding: 5px 8px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        /* 货币单位 */
+        .currency {
+            font-size: clamp(1rem, 4vw, 1.8rem);
+            color: #e0e0e0;
+            margin-bottom: 10px;
+        }
+        /* 适配小屏手机 */
+        @media (max-width: 375px) {
+            .price-section {
+                padding: 30px 15px;
+            }
+            .product-desc {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="fullscreen-container">
+        <!-- 视频区域（替换为你的视频地址） -->
+        <div class="video-wrapper">
+            <iframe 
+                src="https://willheizi.github.io/shuangnanye-video/video.html" 
+                allowfullscreen="true"
+                allow="autoplay; fullscreen; picture-in-picture"
+                scrolling="no"
+            ></iframe>
+        </div>
+
+        <!-- 价格信息区域（参考图片排版） -->
+        <div class="price-section">
+            <h1 class="brand-name">双南唐</h1>
+            <div class="product-desc">
+                <span>双南液典藏系列</span>
+                <span class="degree-tag">46°浓香型白酒</span>
+            </div>
+            <div class="price-box">
+                <span class="price-num">598</span>
+                <div>
+                    <span class="retail-tag">零售价</span>
+                    <span class="currency">RMB</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
