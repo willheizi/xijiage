@@ -101,6 +101,33 @@
             color: #cccccc;
             margin-bottom: 8px;
         }
+
+        /* 产品标签区域（无黄色边框和顶部黄线） */
+        .product-label {
+            max-width: 800px;
+            margin: 20px auto 0;
+            padding: 30px;
+            background-color: #1a1a1a;
+            font-family: "Microsoft Yahei", serif;
+        }
+        /* 标签内容：单列布局（匹配图片排版顺序），金色文字 */
+        .label-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            color: #d4af37; /* 金色文字，匹配标签 */
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            line-height: 1.8;
+        }
+        .label-item {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .label-item strong {
+            min-width: 140px;
+            font-weight: 500;
+        }
+
         /* 手机端微调 */
         @media (max-width: 480px) {
             body {
@@ -111,6 +138,12 @@
             }
             .retail-tag {
                 margin-bottom: 15px;
+            }
+            .product-label {
+                padding: 20px;
+            }
+            .label-item strong {
+                min-width: 120px;
             }
         }
     </style>
@@ -135,6 +168,54 @@
                 <span class="price-num">368</span>
                 <span class="retail-tag">零售价</span>
                 <span class="currency">RMB</span>
+            </div>
+        </div>
+
+        <!-- 产品标签信息（替换为图片中的内容，单列布局） -->
+        <div class="product-label">
+            <div class="label-content">
+                <div class="label-item">
+                    <strong>[食品名称]</strong> 双南囍
+                </div>
+                <div class="label-item">
+                    <strong>[香　　型]</strong> 浓香型白酒
+                </div>
+                <div class="label-item">
+                    <strong>[产品类型]</strong> 固态法白酒
+                </div>
+                <div class="label-item">
+                    <strong>[酒精度]</strong> 42%vol
+                </div>
+                <div class="label-item">
+                    <strong>[净含量]</strong> 500ml
+                </div>
+                <div class="label-item">
+                    <strong>[生产日期]</strong> 见标签喷码处
+                </div>
+                <div class="label-item">
+                    <strong>[产品标准号]</strong> GB/T10781.1-2021(优级)
+                </div>
+                <div class="label-item">
+                    <strong>[配　　料]</strong> 水、高粱、大米、糯米、小麦、玉米
+                </div>
+                <div class="label-item">
+                    <strong>[食品生产许可证号]</strong> SC11551068350987
+                </div>
+                <div class="label-item">
+                    <strong>[贮藏条件]</strong> 常温、阴凉、通风、干燥处保存
+                </div>
+                <div class="label-item">
+                    <strong>[生产单位]</strong> 四川绵竹双南液酒业有限公司
+                </div>
+                <div class="label-item">
+                    <strong>[厂　　址]</strong> 四川省绵竹市新市镇
+                </div>
+                <div class="label-item">
+                    <strong>[产　　地]</strong> 四川省德阳市
+                </div>
+                <div class="label-item">
+                    <strong>[电　　话]</strong> 400-0900078
+                </div>
             </div>
         </div>
     </div>
