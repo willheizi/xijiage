@@ -43,6 +43,17 @@
             height: 100%;
             border: none;
         }
+
+        /* 新增：双南囍酒图样式（协调美观） */
+        .wine-image {
+            width: 100%;
+            max-width: 400px; /* 限制最大宽度，避免过大 */
+            margin: 20px auto; /* 上下间距+水平居中 */
+            display: block;
+            border-radius: 4px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3); /* 轻微阴影提升质感 */
+        }
+
         /* 文字信息区域：还原效果图排版 */
         .info-section {
             background-color: #1a1a1a;
@@ -145,6 +156,11 @@
             .label-item strong {
                 min-width: 120px;
             }
+            /* 手机端缩小酒图尺寸 */
+            .wine-image {
+                max-width: 300px;
+                margin: 15px auto;
+            }
         }
     </style>
 </head>
@@ -159,6 +175,13 @@
                 scrolling="no"
             ></iframe>
         </div>
+
+        <!-- 新增：双南囍酒图（视频与价格之间） -->
+        <img 
+            class="wine-image"
+            src="https://raw.githubusercontent.com/willheizi/xijiage/30841bf747727acd048e3d97967cac85845b1d98/shuangxi.png"
+            alt="双南囍白酒"
+        >
 
         <!-- 文字信息区域（替换为双南囍 368元内容） -->
         <div class="info-section">
