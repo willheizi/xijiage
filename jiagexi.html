@@ -44,10 +44,10 @@
             border: none;
         }
 
-        /* 新增：双南囍酒图样式（协调美观） */
+        /* 调整：双南囍酒图样式（缩小后更协调） */
         .wine-image {
             width: 100%;
-            max-width: 400px; /* 限制最大宽度，避免过大 */
+            max-width: 320px; /* 从400px缩小为320px，更贴合页面比例 */
             margin: 20px auto; /* 上下间距+水平居中 */
             display: block;
             border-radius: 4px;
@@ -156,9 +156,9 @@
             .label-item strong {
                 min-width: 120px;
             }
-            /* 手机端缩小酒图尺寸 */
+            /* 手机端同步缩小酒图尺寸 */
             .wine-image {
-                max-width: 300px;
+                max-width: 240px;
                 margin: 15px auto;
             }
         }
@@ -176,7 +176,7 @@
             ></iframe>
         </div>
 
-        <!-- 新增：双南囍酒图（视频与价格之间） -->
+        <!-- 双南囍酒图（视频与价格之间，已按比例缩小） -->
         <img 
             class="wine-image"
             src="https://raw.githubusercontent.com/willheizi/xijiage/30841bf747727acd048e3d97967cac85845b1d98/shuangxi.png"
