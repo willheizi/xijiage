@@ -16,21 +16,19 @@
             background-color: #1a1a1a;
             color: #ffffff;
             line-height: 1.2;
-            padding: 20px; /* 页面内边距，避免内容贴边 */
+            padding: 20px;
         }
-        /* 整体容器：居中展示，限制最大宽度 */
         .main-container {
-            max-width: 800px; /* 限制最大宽度，视频非全屏 */
+            max-width: 800px;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 15px; /* 视频和文字区间距 */
+            gap: 15px;
         }
-        /* 视频区域：非全屏，固定比例 */
         .video-wrapper {
             width: 100%;
             height: 0;
-            padding-bottom: 56.25%; /* 16:9比例，保持视频比例 */
+            padding-bottom: 56.25%;
             position: relative;
             background-color: #000;
             border-radius: 4px;
@@ -44,31 +42,27 @@
             border: none;
         }
 
-        /* 调整：双南囍酒图样式（已去掉阴影） */
+        /* 图片：缩小5% + 无阴影 */
         .wine-image {
-            width: 100%;
-            max-width: 320px; /* 从400px缩小为320px，更贴合页面比例 */
-            margin: 20px auto; /* 上下间距+水平居中 */
+            width: 95%;
+            max-width: 304px;
+            margin: 20px auto;
             display: block;
             border-radius: 4px;
-            /* 已删除 box-shadow 阴影代码 */
         }
 
-        /* 文字信息区域：还原效果图排版 */
         .info-section {
             background-color: #1a1a1a;
             text-align: center;
             padding: 20px 0;
         }
-        /* 品牌名称：带下划线，居中 */
         .brand-name {
             font-size: clamp(2rem, 8vw, 3.5rem);
             font-weight: 700;
             margin-bottom: 8px;
             position: relative;
-            display: inline-block; /* 下划线仅适配文字宽度 */
+            display: inline-block;
         }
-        /* 下划线：仅在文字下方，与效果图一致 */
         .brand-name::after {
             content: "";
             position: absolute;
@@ -78,42 +72,36 @@
             height: 2px;
             background-color: #ffffff;
         }
-        /* 产品描述：小号字体，灰色 */
         .product-desc {
             font-size: clamp(0.9rem, 4vw, 1.2rem);
             color: #cccccc;
             margin-bottom: 25px;
         }
-        /* 价格区域：精准还原位置 */
         .price-box {
             display: flex;
             align-items: flex-end;
             justify-content: center;
             gap: 8px;
         }
-        /* 价格数字：超大号粗体 */
         .price-num {
             font-size: clamp(4rem, 15vw, 6rem);
             font-weight: 700;
             line-height: 1;
         }
-        /* 零售价标签：金色背景，小号字体 */
         .retail-tag {
             font-size: clamp(0.7rem, 3vw, 0.9rem);
             color: #000;
-            background-color: #ffd700; /* 金色背景，与效果图一致 */
+            background-color: #ffd700;
             padding: 2px 6px;
             border-radius: 2px;
-            margin-bottom: 18px; /* 对齐价格数字底部 */
+            margin-bottom: 18px;
         }
-        /* 货币单位：小号灰色 */
         .currency {
             font-size: clamp(0.9rem, 4vw, 1.1rem);
             color: #cccccc;
             margin-bottom: 8px;
         }
 
-        /* 产品标签区域（无黄色边框和顶部黄线） */
         .product-label {
             max-width: 800px;
             margin: 20px auto 0;
@@ -121,12 +109,11 @@
             background-color: #1a1a1a;
             font-family: "Microsoft Yahei", serif;
         }
-        /* 标签内容：单列布局（匹配图片排版顺序），金色文字 */
         .label-content {
             display: grid;
             grid-template-columns: 1fr;
             gap: 15px;
-            color: #d4af37; /* 金色文字，匹配标签 */
+            color: #d4af37;
             font-size: clamp(1rem, 3vw, 1.3rem);
             line-height: 1.8;
         }
@@ -139,7 +126,6 @@
             font-weight: 500;
         }
 
-        /* 手机端微调 */
         @media (max-width: 480px) {
             body {
                 padding: 15px;
@@ -156,9 +142,8 @@
             .label-item strong {
                 min-width: 120px;
             }
-            /* 手机端同步缩小酒图尺寸 */
             .wine-image {
-                max-width: 240px;
+                max-width: 228px;
                 margin: 15px auto;
             }
         }
@@ -166,7 +151,6 @@
 </head>
 <body>
     <div class="main-container">
-        <!-- 视频区域（非全屏，替换为你的视频地址） -->
         <div class="video-wrapper">
             <iframe 
                 src="https://willheizi.github.io/shuangnanye-video2/video2.html" 
@@ -176,14 +160,12 @@
             ></iframe>
         </div>
 
-        <!-- 双南囍酒图（视频与价格之间，已按比例缩小+无阴影） -->
         <img 
             class="wine-image"
             src="https://raw.githubusercontent.com/willheizi/xijiage/30841bf747727acd048e3d97967cac85845b1d98/shuangxi.png"
             alt="双南囍白酒"
         >
 
-        <!-- 文字信息区域（替换为双南囍 368元内容） -->
         <div class="info-section">
             <h1 class="brand-name">双南囍</h1>
             <p class="product-desc">双南液臻酿系列 42°浓香型白酒</p>
@@ -194,7 +176,6 @@
             </div>
         </div>
 
-        <!-- 产品标签信息（替换为图片中的内容，单列布局） -->
         <div class="product-label">
             <div class="label-content">
                 <div class="label-item">
